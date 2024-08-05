@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxthq/studio',
     'nuxt-og-image',
-    "@nuxthub/core"
+    '@nuxthub/core'
   ],
 
   hooks: {

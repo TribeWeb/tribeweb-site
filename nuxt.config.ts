@@ -22,6 +22,14 @@ export default defineNuxtConfig({
     }
   },
 
+  googleFonts: {
+    display: 'swap',
+    download: true,
+    families: {
+      Comfortaa: [700]
+    }
+  },
+
   ui: {
     icons: ['heroicons', 'simple-icons']
   },

@@ -28,7 +28,6 @@
     "@nuxthq/studio": "^2.0.3",
     "eslint": "^9.8.0",
     "nuxt": "^3.12.4",
-    "vite-plugin-wasm": "^3.3.0",
     "vue-tsc": "^2.0.29",
     "wrangler": "^3.68.0"
   },

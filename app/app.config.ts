@@ -1,6 +1,6 @@
 export default defineAppConfig({
   ui: {
-    primary: 'blue',
+    primary: 'green',
     gray: 'slate',
     footer: {
       bottom: {
@@ -15,8 +15,8 @@ export default defineAppConfig({
   header: {
     logo: {
       alt: '',
-      light: '',
-      dark: ''
+      light: 'logo.svg',
+      dark: 'logo.svg'
     },
     search: true,
     colorMode: true,

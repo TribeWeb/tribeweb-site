@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import wasm from 'vite-plugin-wasm';
+
 export default defineNuxtConfig({
   extends: ['@nuxt/ui-pro'],
 
@@ -35,6 +37,10 @@ export default defineNuxtConfig({
     '/': { prerender: true },
     '/api/search.json': { prerender: true }
   },
+
+  vite: {
+    plugins: [wasm()],
+},
 
   devtools: {
     enabled: true

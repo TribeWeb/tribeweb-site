@@ -1,34 +1,26 @@
-title: 'Nuxt UI Pro - Docs template'
-description: Nuxt UI Pro is a collection of premium Vue components built on top of Nuxt UI to create beautiful & responsive Nuxt applications in minutes.
+title: 'tribeweb - websites & web applications'
+description: tribeweb builds websites and web applications that are crafted to meet you and your customers' needs.
 navigation: false
 hero:
-  title: 'Build your docs in seconds'
-  description: 'Create your documentation in seconds with this template!'
+  title: 'Create a website to be proud of'
+  description: "We'll craft a website that looks great and properly reflects what you do. A website that is simple for you to update and for your customers and visitors to use"
   orientation: horizontal
-  headline:
-    label: Made with Nuxt UI Pro
-    to: https://ui.nuxt.com/pro
-    icon: i-heroicons-arrow-top-right-on-square-20-solid
   links:
     - label: Get started
       icon: i-heroicons-arrow-right-20-solid
       trailing: true
       to: '/getting-started'
       size: lg
-    - label: Use this template
+    - label: Find out more
       icon: i-simple-icons-github
       size: lg
       color: gray
       to: https://github.com/nuxt-ui-pro/docs
       target: _blank
-  code: |
-    ```bash [Terminal]
-    npx nuxi init -t github:nuxt-ui-pro/docs
-    ```
 features:
-  title: 'All-in-one docs template'
+  title: 'Features'
   links:
-    - label: 'Explore Nuxt UI Pro'
+    - label: 'Get in touch'
       icon: 'i-simple-icons-nuxtdotjs'
       trailingIcon: 'i-heroicons-arrow-right-20-solid'
       color: 'gray'
@@ -36,18 +28,18 @@ features:
       target: '_blank'
       size: lg
   items:
-    - title: 'Nuxt 3'
-      description: 'Powered by Nuxt 3 for optimal performances and SEO.'
+    - title: 'High speed'
+      description: "Hosting your website on `the edge` to ensure optimal performance anywhere in the world."
       icon: 'i-simple-icons-nuxtdotjs'
       to: 'https://nuxt.com'
       target: '_blank'
-    - title: 'Markdown'
-      description: 'Write your pages with MDC thanks to Nuxt Content.'
+    - title: 'Search Engine Optimised'
+      description: 'Focusing your content and ensure it can be found by the people you want to engage.'
       icon: 'i-simple-icons-markdown'
       to: 'https://content.nuxt.com'
       target: '_blank'
-    - title: 'Nuxt UI'
-      description: 'Offers a very large set of full customizable components.'
+    - title: 'Simple for anyone to use'
+      description: 'Using accessibility best practice and responsive design to ensure usability on every device.'
       icon: 'i-heroicons-sparkles-20-solid'
       to: 'https://ui.nuxt.com'
       target: '_blank'

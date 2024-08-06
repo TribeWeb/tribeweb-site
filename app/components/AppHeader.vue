@@ -10,8 +10,11 @@ const { header } = useAppConfig()
   <UHeader>
     <template #logo>
       <template v-if="header?.logo?.dark || header?.logo?.light">
-        <UColorModeImage v-bind="{ class: 'h-10 w-auto', ...header?.logo }" />
-        <span class="font-feature text-4xl text-primary tracking-[-0.035em] font-bold">tribeweb</span>
+        <!-- <UColorModeImage v-bind="{ class: 'h-10 w-auto', ...header?.logo }" /> -->
+        <AppLogo
+          v-bind="{ class: 'md:h-10 h-8 w-auto' }"
+        />
+        <span class="font-feature md:text-4xl text-3xl text-primary tracking-[-0.035em] font-bold">tribeweb</span>
       </template>
       <template v-else>
         tribeweb

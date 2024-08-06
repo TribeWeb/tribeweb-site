@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
+import type { _accentColor } from '#tailwind-config/theme'
 
 export default <Partial<Config>>{
   theme: {
@@ -20,7 +21,8 @@ export default <Partial<Config>>{
           700: '#006e81',
           800: '#00515f',
           900: '#00343e',
-          950: '#001c23'
+          950: '#001c23',
+          999: '#0089ff'
         },
         blue: {
           50: '#f1f8fa',

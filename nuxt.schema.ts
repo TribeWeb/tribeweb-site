@@ -64,6 +64,14 @@ export default defineNuxtSchema({
           default: 'green',
           required: ['sky', 'mint', 'rose', 'amber', 'violet', 'emerald', 'fuchsia', 'indigo', 'lime', 'orange', 'pink', 'purple', 'red', 'teal', 'yellow', 'green', 'blue', 'cyan', 'gray', 'white', 'black']
         }),
+        accent: field({
+          type: 'string',
+          title: 'Accent',
+          description: 'Accent color in your UI.',
+          icon: 'i-mdi-palette-outline',
+          default: 'blue',
+          required: ['sky', 'mint', 'rose', 'amber', 'violet', 'emerald', 'fuchsia', 'indigo', 'lime', 'orange', 'pink', 'purple', 'red', 'teal', 'yellow', 'green', 'blue', 'cyan', 'gray', 'white', 'black']
+        }),
         gray: field({
           type: 'string',
           title: 'Gray',

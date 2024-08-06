@@ -17,6 +17,9 @@ hero:
       color: gray
       to: https://github.com/nuxt-ui-pro/docs
       target: _blank
+  img:
+    src: 'https://picsum.photos/640/360'
+    class: "w-full rounded-md shadow-xl ring-1 ring-gray-300 dark:ring-gray-700"
 features:
   title: 'Features'
   links:

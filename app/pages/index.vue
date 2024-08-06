@@ -15,8 +15,9 @@ useSeoMeta({
     <ULandingHero
       v-if="page.hero"
       v-bind="page.hero"
+      class="md:py-32"
     >
-      <template #headline>
+      <!-- <template #headline>
         <UBadge
           v-if="page.hero.headline"
           variant="subtle"
@@ -43,17 +44,17 @@ useSeoMeta({
             class="ml-1 w-4 h-4 pointer-events-none"
           />
         </UBadge>
-      </template>
+      </template> -->
 
       <template #title>
         <MDC :value="page.hero.title" />
       </template>
-
-      <MDC
-        :value="page.hero.code"
-        tag="pre"
-        class="prose prose-primary dark:prose-invert mx-auto"
-      />
+      <template #default>
+        <img
+          :src="page.hero.img.src"
+          :class="page.hero.img.class"
+        >
+      </template>
     </ULandingHero>
 
     <ULandingSection

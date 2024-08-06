@@ -11,7 +11,7 @@ export default defineAppConfig({
     }
   },
   seo: {
-    siteName: 'TribeWeb'
+    siteName: 'tribeweb'
   },
   header: {
     logo: {

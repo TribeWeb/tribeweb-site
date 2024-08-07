@@ -1,6 +1,5 @@
 import type { Config } from 'tailwindcss'
 import defaultTheme from 'tailwindcss/defaultTheme'
-import type { _accentColor } from '#tailwind-config/theme'
 
 export default <Partial<Config>>{
   theme: {
@@ -11,18 +10,19 @@ export default <Partial<Config>>{
       },
       colors: {
         green: {
-          50: '#e4faff',
-          100: '#93eaff',
-          200: '#70d1e7',
-          300: '#55b7cd',
-          400: '#389db3',
-          500: '#00859b',
-          600: '#00859b',
-          700: '#006e81',
+          50: '#ebf8fb',
+          100: '#d2eef6',
+          200: '#71d1e7',
+          300: '#59bfd6',
+          400: '#40a9c0',
+          500: '#008ca3',
+          600: '#007386',
+          700: '#005c6c',
           800: '#00515f',
-          900: '#00343e',
-          950: '#001c23',
-          999: '#0089ff'
+          900: '#004d5a',
+          950: '#004d5a',
+          accentLight: '#439bff',
+          accentDark: '#73b2ff'
         },
         blue: {
           50: '#f1f8fa',
@@ -41,3 +41,17 @@ export default <Partial<Config>>{
     }
   }
 }
+// green: {
+//   50: '#e4faff',
+//   100: '#93eaff',
+//   200: '#70d1e7',
+//   300: '#55b7cd',
+//   400: '#389db3',
+//   500: '#00859b',
+//   600: '#00859b',
+//   700: '#006e81',
+//   800: '#00515f',
+//   900: '#00343e',
+//   950: '#001c23',
+//   accent: '#0089ff'
+// },

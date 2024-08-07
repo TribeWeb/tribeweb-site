@@ -10,18 +10,12 @@ const { value } = useColorMode()
 <template>
   <UHeader>
     <template #logo>
-      <template v-if="header?.logo?.dark || header?.logo?.light">
-        <!-- <UColorModeImage v-bind="{ class: 'h-10 w-auto', ...header?.logo }" /> -->
-        <AppLogo
-          v-bind="{ class: 'md:h-10 h-7 w-auto' }"
-          primary="rgb(var(--color-primary-DEFAULT)"
-          :accent="value==='light' ? 'rgb(var(--color-primary-accentLight)' : 'rgb(var(--color-primary-accentDark)'"
-        />
-        <span class="font-feature md:text-4xl text-2xl text-primary tracking-[-0.035em] font-bold">tribeweb</span>
-      </template>
-      <template v-else>
-        tribeweb
-      </template>
+      <AppLogo
+        v-bind="{ class: 'md:h-10 h-6 w-auto m-auto' }"
+        primary="rgb(var(--color-primary-DEFAULT)"
+        :accent="value==='light' ? 'rgb(var(--color-primary-accentLight)' : 'rgb(var(--color-primary-accentDark)'"
+      />
+      <span class="font-feature md:text-4xl text-2xl text-primary tracking-[-0.035em] font-bold">tribeweb</span>
     </template>
 
     <template

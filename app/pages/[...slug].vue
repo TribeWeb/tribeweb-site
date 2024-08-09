@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import { withoutTrailingSlash } from 'ufo'
+import ShowDate from '~/components/content/ShowDate.vue';
+import type { NavItem } from '@nuxt/content'
+
+const navigation = inject<Ref<NavItem[]>>('navigation', ref([]))
+const breadcrumb = useBreadcrumbItems()
 
 definePageMeta({
   layout: 'docs'
@@ -47,9 +52,13 @@ const links = computed(() => [toc?.bottom?.edit && {
     <UPageHeader
       :title="page.title"
       :description="page.description"
-      :links="page.links"
       :headline="headline"
-    />
+    >
+      <template #headline>
+        <UBreadcrumb :links="breadcrumb" />
+      </template>
+    <ShowDate v-if="page.date" :date="page.date.value" :label="page.date.label" class="mt-4" />
+    </UPageHeader>
 
     <UPageBody prose>
       <ContentRenderer

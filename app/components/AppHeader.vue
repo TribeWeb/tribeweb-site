@@ -4,7 +4,7 @@ import type { NavItem } from '@nuxt/content'
 const navigation = inject<NavItem[]>('navigation', [])
 
 const { header } = useAppConfig()
-const { value } = useColorMode()
+const { value: mode } = useColorMode()
 </script>
 
 <template>
@@ -13,7 +13,7 @@ const { value } = useColorMode()
       <AppLogo
         v-bind="{ class: 'md:h-10 h-6 w-auto m-auto' }"
         primary="rgb(var(--color-primary-DEFAULT)"
-        :accent="value==='light' ? 'rgb(var(--color-primary-accentLight)' : 'rgb(var(--color-primary-accentDark)'"
+        :accent="mode==='light' ? 'rgb(var(--color-primary-accentLight)' : 'rgb(var(--color-primary-accentDark)'"
       />
       <span class="font-feature md:text-4xl text-2xl text-primary tracking-[-0.035em] font-bold">tribeweb</span>
     </template>

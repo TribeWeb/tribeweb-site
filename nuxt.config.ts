@@ -11,14 +11,23 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxthq/studio',
     'nuxt-og-image',
-    '@nuxthub/core'
+    '@nuxthub/core',
+    '@vueuse/nuxt',
+    "@nuxtjs/seo"
   ],
+
+  site: {
+    url: 'https://tribeweb.co.uk',
+    name: 'tribeweb',
+    description: "tribeweb builds websites and web applications that are crafted to meet you and your customers' needs",
+    defaultLocale: 'en', // not needed if you have @nuxtjs/i18n installed
+  },
 
   hooks: {
     // Define `@nuxt/ui` components as global to use them in `.md` (feel free to add those you need)
     'components:extend': (components) => {
-      const globals = components.filter(c => ['UButton', 'UIcon'].includes(c.pascalName))
-      globals.forEach(c => c.global = true)
+      const globals = components.filter((c) => ['UButton', 'UIcon'].includes(c.pascalName))
+      globals.forEach((c) => c.global = true)
     }
   },
 
@@ -35,7 +44,8 @@ export default defineNuxtConfig({
   },
 
   colorMode: {
-    disableTransition: true
+    disableTransition: true,
+    preference: 'light'
   },
 
   routeRules: {

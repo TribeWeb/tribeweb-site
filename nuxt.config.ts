@@ -59,7 +59,7 @@ export default defineNuxtConfig({
   },
 
   typescript: {
-    strict: false
+    strict: true
   },
 
   future: {

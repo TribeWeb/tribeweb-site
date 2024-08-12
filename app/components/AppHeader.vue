@@ -11,7 +11,7 @@ const { value: mode } = useColorMode()
   <UHeader>
     <template #logo>
       <AppLogo
-        v-bind="{ class: 'md:h-12 h-8 w-auto m-auto' }"
+        v-bind="{ class: 'md:h-12 h-7 w-auto m-auto' }"
         primary="rgb(var(--color-primary-DEFAULT)"
         :accent="mode==='light' ? 'rgb(var(--color-primary-accentLight)' : 'rgb(var(--color-primary-accentDark)'"
       />

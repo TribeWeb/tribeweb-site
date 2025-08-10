@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { withoutTrailingSlash } from 'ufo'
-import ShowDate from '~/components/content/ShowDate.vue';
-import type { NavItem } from '@nuxt/content'
+import ShowDate from '~/components/content/ShowDate.vue'
+import type { ContentNavigationItem } from '@nuxt/content'
+import { findPageHeadline } from '@nuxt/content/utils'
 
-const navigation = inject<Ref<NavItem[]>>('navigation', ref([]))
+const navigation = inject<Ref<ContentNavigationItem[]>>('navigation', ref([]))
 const breadcrumb = useBreadcrumbItems()
 
 definePageMeta({
@@ -13,16 +13,22 @@ definePageMeta({
 const route = useRoute()
 const { toc, seo } = useAppConfig()
 
-const { data: page } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
+const { data: page } = await useAsyncData(route.path, () => {
+  return queryCollection('content').path(route.path).first()
+})
 if (!page.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
+const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
+  return queryCollectionItemSurroundings('content', route.path, {
+    fields: ['title', 'description'] })
+})
 
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryContent()
-  .where({ _extension: 'md', navigation: { $ne: false } })
-  .only(['title', 'description', '_path'])
-  .findSurround(withoutTrailingSlash(route.path))
-)
+// const { data: surround } = await useAsyncData(`${route.path}-surround`, () => queryCollection()
+//   .where({ _extension: 'md', navigation: { $ne: false } })
+//   .only(['title', 'description', '_path'])
+//   .findSurround(withoutTrailingSlash(route.path))
+// )
 
 useSeoMeta({
   title: page.value.title,
@@ -37,7 +43,7 @@ defineOgImage({
   description: page.value.description
 })
 
-const headline = computed(() => findPageHeadline(page.value))
+const headline = findPageHeadline(navigation.value, route.path)
 
 const links = computed(() => [toc?.bottom?.edit && {
   icon: 'i-heroicons-pencil-square',
@@ -57,10 +63,10 @@ const links = computed(() => [toc?.bottom?.edit && {
       <template #headline>
         <UBreadcrumb :links="breadcrumb" />
       </template>
-    <ShowDate v-if="page.date" :date="page.date.value" :label="page.date.label" class="mt-4" />
+      <ShowDate v-if="page.date" :date="page.date.value" :label="page.date.label" class="mt-4" />
     </UPageHeader>
 
-    <UPageBody prose>
+    <UPageBody>
       <ContentRenderer
         v-if="page.body"
         :value="page"
@@ -87,7 +93,7 @@ const links = computed(() => [toc?.bottom?.edit && {
             class="hidden lg:block space-y-6"
             :class="{ '!mt-6': page.body?.toc?.links?.length }"
           >
-            <UDivider
+            <USeparator
               v-if="page.body?.toc?.links?.length"
               type="dashed"
             />

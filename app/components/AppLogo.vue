@@ -1,3 +1,4 @@
+<!-- eslint-disable @stylistic/max-len -->
 <script setup lang="ts">
 const props = defineProps<{
   primary: string
@@ -14,7 +15,7 @@ const props = defineProps<{
     height="360px"
     preserveAspectRatio="xMidYMid meet"
   >
-    <g :fill="props.primary" >
+    <g :fill="props.primary">
       <path transform="matrix(0.443103909492, 1.36379802227, -2.402045965195, -0.566248834133, 442.757351953536, -122.596815752797)" d="M 169.748 108.124 A 104.166 104.166 0 1 1 169.748 147.876 A 73.332 73.332 0 1 0 169.748 108.124 Z" />
       <path transform="matrix(0.251579910517, 0.774320006371, -1.363810062408, -0.321500003338, 339.033537712414, -54.593020968139)" d="M 169.748 108.124 A 104.166 104.166 0 1 1 169.748 147.876 A 68.231 68.231 0 1 0 169.748 108.124 Z" />
     </g>

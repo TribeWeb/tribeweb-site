@@ -1,13 +1,29 @@
 export default defineAppConfig({
   ui: {
-    primary: 'green',
-    accent: 'blue',
-    gray: 'slate',
+    colors: {
+      primary: 'tribeweb',
+      secondary: 'accent',
+      gray: 'sky'
+    }
+    // footer: {
+    //   bottom: {
+    //     left: 'text-sm text-gray-500 dark:text-gray-400',
+    //     wrapper: 'border-t border-gray-200 dark:border-gray-800'
+    //   }
+    // }
+  },
+  uiPro: {
     footer: {
-      bottom: {
-        left: 'text-sm text-gray-500 dark:text-gray-400',
-        wrapper: 'border-t border-gray-200 dark:border-gray-800'
+      slots: {
+        root: 'border-t border-(--ui-border)',
+        left: 'text-sm text-(--ui-text-muted)'
       }
+    }
+  },
+
+  fonts: {
+    experimental: {
+      processCSSVariables: true
     }
   },
   seo: {
@@ -75,5 +91,10 @@ export default defineAppConfig({
         target: '_blank'
       }]
     }
+  },
+  toaster: {
+    position: 'bottom-right' as const,
+    expand: true,
+    duration: 5000
   }
 })

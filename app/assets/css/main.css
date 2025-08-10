@@ -1,0 +1,61 @@
+@import "tailwindcss" theme(static);
+@import "@nuxt/ui-pro";
+
+@source "../../../content";
+
+@theme static {
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Comfortaa', sans-serif;
+
+  --color-tribeweb-50: #ebf8fb;
+  --color-tribeweb-100: #d2eef6;
+  --color-tribeweb-200: #71d1e7;
+  --color-tribeweb-300: #59bfd6;
+  --color-tribeweb-400: #40a9c0;
+  --color-tribeweb-500: #008ca3;
+  --color-tribeweb-600: #007386;
+  --color-tribeweb-700: #005c6c;
+  --color-tribeweb-800: #00515f;
+  --color-tribeweb-900: #004d5a;
+  --color-tribeweb-950: #004d5a;
+
+  --color-tribeweb-accentLight: #439bff;
+  --color-tribeweb-accentDark: #73b2ff;
+
+  --color-accent-50: #f1f8fa;
+  --color-accent-100: #dcecf1;
+  --color-accent-200: #bed9e3;
+  --color-accent-300: #91becf;
+  --color-accent-400: #5c9ab4;
+  --color-accent-500: #407c97;
+  --color-accent-600: #396781;
+  --color-accent-700: #33566b;
+  --color-accent-800: #30495a;
+  --color-accent-900: #2c3f4d;
+  --color-accent-950: #192833;
+
+  --color-sky-50: oklch(0.977 0.013 236.62);
+  --color-sky-100: oklch(0.951 0.026 236.824);
+  --color-sky-200: oklch(0.901 0.058 230.902);
+  --color-sky-300: oklch(0.828 0.111 230.318);
+  --color-sky-400: oklch(0.746 0.16 232.661);
+  --color-sky-500: oklch(0.685 0.169 237.323);
+  --color-sky-600: oklch(0.588 0.158 241.966);
+  --color-sky-700: oklch(0.5 0.134 242.749);
+  --color-sky-800: oklch(0.443 0.11 240.79);
+  --color-sky-900: oklch(0.391 0.09 240.876);
+  --color-sky-950: oklch(0.293 0.066 243.157);
+
+  --color-zinc-50: oklch(0.985 0 0);
+  --color-zinc-100: oklch(0.967 0.001 286.375);
+  --color-zinc-200: oklch(0.92 0.004 286.32);
+  --color-zinc-300: oklch(0.871 0.006 286.286);
+  --color-zinc-400: oklch(0.705 0.015 286.067);
+  --color-zinc-500: oklch(0.552 0.016 285.938);
+  --color-zinc-600: oklch(0.442 0.017 285.786);
+  --color-zinc-700: oklch(0.37 0.013 285.805);
+  --color-zinc-800: oklch(0.274 0.006 286.033);
+  --color-zinc-900: oklch(0.21 0.006 285.885);
+  --color-zinc-950: oklch(0.141 0.005 285.823);
+}
+

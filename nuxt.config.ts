@@ -1,20 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  extends: ['@nuxt/ui-pro'],
 
   modules: [
+    '@nuxt/ui-pro',
     '@nuxt/content',
     '@nuxt/eslint',
-    '@nuxt/fonts',
     '@nuxt/image',
-    '@nuxt/ui',
-    '@nuxthq/studio',
     'nuxt-og-image',
     '@nuxthub/core',
     '@vueuse/nuxt',
     "@nuxtjs/seo"
-  ],
+    ],
 
   site: {
     url: 'https://tribeweb.co.uk',
@@ -23,29 +20,17 @@ export default defineNuxtConfig({
     defaultLocale: 'en', // not needed if you have @nuxtjs/i18n installed
   },
 
-  hooks: {
-    // Define `@nuxt/ui` components as global to use them in `.md` (feel free to add those you need)
-    'components:extend': (components) => {
-      const globals = components.filter((c) => ['UButton', 'UIcon'].includes(c.pascalName))
-      globals.forEach((c) => c.global = true)
+  css: ['~/assets/css/main.css'],
+
+ content: {
+    database: {
+      type: 'd1',
+      bindingName: 'DB'
+    },
+    preview: {
+      dev: true,
+      api: 'https://api.nuxt.studio'
     }
-  },
-
-  googleFonts: {
-    display: 'swap',
-    download: true,
-    families: {
-      Comfortaa: [700]
-    }
-  },
-
-  ui: {
-    icons: ['heroicons', 'simple-icons', 'vscode-icons']
-  },
-
-  colorMode: {
-    disableTransition: true,
-    preference: 'light'
   },
 
   routeRules: {
@@ -56,14 +41,6 @@ export default defineNuxtConfig({
 
   devtools: {
     enabled: true
-  },
-
-  typescript: {
-    strict: true
-  },
-
-  future: {
-    compatibilityVersion: 4
   },
 
   eslint: {

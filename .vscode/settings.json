@@ -1,6 +1,7 @@
 {
-  "eslint.useFlatConfig": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always",
-  },
+    "editor.folding": true,
+    "files.associations": {
+    "*.xml": "html",
+    "*.svg": "html",
+}
 }

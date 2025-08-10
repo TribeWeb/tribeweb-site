@@ -1,34 +1,46 @@
 <script setup lang="ts">
-import type { NavItem } from '@nuxt/content'
+import type { ContentNavigationItem } from '@nuxt/content'
+import { mapContentNavigation } from '@nuxt/ui-pro/runtime/utils/content.js'
 
-const navigation = inject<NavItem[]>('navigation', [])
+const navigation = inject<ContentNavigationItem[]>('navigation', [])
 
 const { header } = useAppConfig()
-const { value: mode } = useColorMode()
 </script>
 
 <template>
   <UHeader>
-    <template #logo>
+    <template #title>
       <AppLogo
         v-bind="{ class: 'md:h-12 h-7 w-auto m-auto' }"
-        primary="rgb(var(--color-primary-DEFAULT)"
-        :accent="mode==='light' ? 'rgb(var(--color-primary-accentLight)' : 'rgb(var(--color-primary-accentDark)'"
+        primary="var(--ui-primary)"
+        accent="var(--ui-secondary)"
       />
-      <span class="font-feature md:text-4xl text-2xl text-primary tracking-[-0.035em] font-bold">tribeweb</span>
+      <span class="font-display md:text-4xl text-2xl text-primary tracking-[-0.035em] font-bold">tribeweb</span>
     </template>
 
-    <template
+    <UContentSearchButton
       v-if="header?.search"
-      #center
+      label="Search..."
+      variant="outline"
+      class="w-full"
     >
-      <UContentSearchButton class="hidden lg:flex" />
-    </template>
+      <template #trailing>
+        <div class="flex items-center gap-0.5 ms-auto">
+          <UKbd value="meta" />
+          <UKbd value="k" />
+        </div>
+      </template>
+    </UContentSearchButton>
+
+    <UNavigationMenu
+      :ui="{ viewportWrapper: 'w-[150%] -left-1/2 -right-1/2 mx-auto' }"
+      :items="mapContentNavigation(navigation)"
+      highlight
+    />
 
     <template #right>
       <UContentSearchButton
         v-if="header?.search"
-        :label="null"
         class="lg:hidden"
       />
 
@@ -38,13 +50,16 @@ const { value: mode } = useColorMode()
         <UButton
           v-for="(link, index) of header.links"
           :key="index"
-          v-bind="{ color: 'gray', variant: 'ghost', ...link }"
-        />
+          v-bind="{ color: 'primary', variant: 'outline', size: 'sm', ...link }"
+        >
+          {{ link.label }}
+          <UBadge
+            v-if="link.badge"
+            size="md"
+            :label="link.badge"
+          />
+        </UButton>
       </template>
-    </template>
-
-    <template #panel>
-      <UNavigationTree :links="mapContentNavigation(navigation)" />
     </template>
   </UHeader>
 </template>

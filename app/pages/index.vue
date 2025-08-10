@@ -1,20 +1,26 @@
 <script setup lang="ts">
-const { data: page } = await useAsyncData('index', () => queryContent('/').findOne())
+const route = useRoute()
+const { data: page } = await useAsyncData(route.path, () => {
+  return queryCollection('content').path(route.path).first()
+})
 
 useSeoMeta({
   titleTemplate: '',
-  title: page.value.title,
-  ogTitle: page.value.title,
-  description: page.value.description,
-  ogDescription: page.value.description
+  title: page.value?.title,
+  ogTitle: page.value?.title,
+  description: page.value?.description,
+  ogDescription: page.value?.description
 })
 </script>
 
 <template>
-  <div>
-    <ULandingHero
-      v-if="page.hero"
-      v-bind="page.hero"
+  <UPage>
+    <UPageHero
+      v-if="page?.hero"
+      :title="page?.hero.title"
+      :description="page?.hero.description"
+      :img="page?.hero.img"
+      orientation="horizontal"
       class="md:py-32"
     >
       <!-- <template #headline>
@@ -46,28 +52,26 @@ useSeoMeta({
         </UBadge>
       </template> -->
 
-      <template #title>
+      <!-- <template #title>
         <MDC :value="page.hero.title" />
-      </template>
-      <template #default>
-        <img
-          :src="page.hero.img.src"
-          :class="page.hero.img.class"
-        >
-      </template>
-    </ULandingHero>
+      </template> -->
+      <img
+        :src="page.hero.img.src"
+        :class="page.hero.img.class"
+      >
+    </UPageHero>
 
-    <ULandingSection
-      :title="page.features.title"
-      :links="page.features.links"
+    <UPageSection
+      :title="page?.features?.title"
+      :links="page?.features?.links"
     >
       <UPageGrid>
-        <ULandingCard
-          v-for="(item, index) of page.features.items"
+        <UPageCard
+          v-for="(item, index) of page?.features?.items"
           :key="index"
           v-bind="item"
         />
       </UPageGrid>
-    </ULandingSection>
-  </div>
+    </UPageSection>
+  </UPage>
 </template>
